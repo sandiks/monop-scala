@@ -3,7 +3,7 @@ package monoplib
 import scala.collection.mutable.ListBuffer
 
 enum PlayerType:
-  case Bot, Human
+    case Bot, Human
 
 class Player(
     var id: Int = 0,
@@ -20,19 +20,19 @@ class Player(
     var rolls: ListBuffer[Int] = ListBuffer()
 ) {
 
-  def this(id: Int, name: String, isBot: Boolean) =
-    this(id, name, isBot, false, 1500, 0, 0, 0, 0, 0, 0, ListBuffer())
+    def this(id: Int, name: String, isBot: Boolean) =
+        this(id, name, isBot, false, 1500, 0, 0, 0, 0, 0, 0, ListBuffer())
 
-  def isHuman = !isBot
+    def isHuman = !isBot
 
-  def moveToNewPositionr(lastRoll: Int): Unit = {
-    val r1 = lastRoll / 10
-    val r2 = lastRoll % 10
-    rolls += lastRoll
-    if (pos > 39) {
-      pos %= 40
-      money += 2000
+    def moveToNewPosition(lastRoll: Int): Unit = {
+        val r1 = lastRoll / 10
+        val r2 = lastRoll % 10
+        rolls += lastRoll
+        if (pos > 39) {
+            pos %= 40
+            money += 2000
+        }
     }
-  }
-  def updateTimer(): Unit = {}
+    def updateTimer(): Unit = ???
 }

@@ -11,8 +11,9 @@ import scala.io.StdIn.readLine
   var pl2 = Player(2, "John", false)
   var g = GameHelper.startGame(List(pl1, pl2))
   var cmd = "start"
-  for(line <- g.Cells.map(c=> c.toString()))
-    println(line)
+  g.toFirstRound(1000)
+
+  // for(line <- g.CommunityChest.map(c=> c.toString())) println(line)
 
   while (cmd != "q") {
     // MapPrinter.PrintGameInfo2(g);

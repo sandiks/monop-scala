@@ -34,7 +34,10 @@ class ChestCard(
     var text: String = "",
     var money: Int = 0,
     var pos: Int = 0
-)
+){
+  override def toString() =
+    s"type: $cardType, randGroup: $randomGroup, text: $text, pos: $pos"
+}
 
 class GameConfig(
     var isManualRollMode: Boolean = false,

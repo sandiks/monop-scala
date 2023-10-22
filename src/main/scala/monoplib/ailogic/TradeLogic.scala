@@ -6,10 +6,11 @@ import monoplib.TradeBox
 import monoplib.GameState
 
 object TradeLogic {
+
   def tryDoTrade(g: Game): Boolean = {
     var validBotTrades = getValidTrades(g, g.currPlayer)
     var found = validBotTrades.find(trade => {
-        g.RejectedTrades.exists(rejectedTrade => rejectedTrade == trade)!=true
+        g.rejectedTrades.exists(rejectedTrade => rejectedTrade == trade)!=true
     })
 
     if (found.isDefined) {
