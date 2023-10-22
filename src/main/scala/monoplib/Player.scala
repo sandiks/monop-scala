@@ -34,5 +34,5 @@ class Player(
             money += 2000
         }
     }
-    def updateTimer(): Unit = ???
+    def updateTimer(): Unit = {}
 }

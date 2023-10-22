@@ -29,9 +29,9 @@ class Cell {
 
     def isLand() = ctype == 1 || ctype == 2 || ctype == 3
 
-    def IsActive = !isMortgage
+    def isActive = !isMortgage
 
-    def CanBuild = housesCount < 5
+    def canBuild = housesCount < 5
 
     def HouseCost = group match {
         case 1 | 2 => 500
@@ -41,7 +41,7 @@ class Cell {
         case _     => 0
     }
 
-    def HouseCostWhenSell = HouseCost / 2
+    def houseCostWhenSell() = HouseCost / 2
 
     def mortgageAmount = cost / 2
 

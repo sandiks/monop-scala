@@ -16,7 +16,7 @@ class Game {
     var round: Int                          = 0
     var lastRollAsInt: Int                  = 0
     var ManualRoll: Int                     = 0
-    var config: GameConfig                  = GameConfig(true, true)
+    var config: GameConfig                  = GameConfig(true, false)
     var State: GameState                    = GameState.Start
     var UILanguage: String                  = "ru"
     var Players: ArrayBuffer[Player]        = ArrayBuffer()
@@ -141,12 +141,12 @@ class Game {
     def calcPlayerAssets(pid: Int, includeMonop: Boolean = true):Int =
     {
         var sum = 0
-        Cells.filter(c => c.IsActive && c.owner == pid).foreach(cell=>
+        Cells.filter(c => c.isActive && c.owner == pid).foreach(cell=>
         {
             if (includeMonop)
             {
                 sum += cell.mortgageAmount
-                sum += cell.housesCount * cell.HouseCostWhenSell
+                sum += cell.housesCount * cell.houseCostWhenSell()
             } else if (!cell.isMonopoly){
                 sum += cell.mortgageAmount
             }

@@ -26,7 +26,7 @@ class Map(var g: Game) {
     def MonopGroupsByUser(pid: Int) = CellsByUserByType(pid, 1)
         .filter(_.isMonopoly)
         .groupBy(_.group)
-        .filter(x => x._2.forall(_.IsActive))
+        .filter(x => x._2.forall(_.isActive))
 
     def setOwner(p: Player, cell: Cell, cost: Int): Unit = {
         if (cell.owner == p.id) return
